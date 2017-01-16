@@ -1,0 +1,55 @@
+/* CSS Document */
+/* Created by shuanger, 2008-08-20*/
+body {margin: 0px; font-size:12px; background:url(images/right_bg.gif) repeat-x;}
+#main{ width:874px; overflow:hidden; margin:0 auto;}
+#bgleft{ width:13px; height:100%; background:url(images/bgleft.gif) repeat-y; float:left;}
+#bgright{ width:13px; height:100%; background:url(images/bgright.gif) repeat-y;float:left;}
+#head{ width:874px; background:url(images/head_bg.gif) top repeat-x; float:left;}
+#head ul{ margin:0; padding:0;}
+#head ul li{ line-height:50px;  padding-left:2px;float:left; list-style:none; background:url(images/head_line.gif) left top no-repeat;}
+#head ul li a{ text-decoration:none; color:#fff; font-family:"微软雅黑"; font-size:14px; padding:10px 9px 0 9px; display:block; height:50px; float:left;}
+#head ul li a:hover{ background:url(images/head_hover_bg.gif) repeat-x; color:#3cc;}
+#head p{ width:874px; float:left; margin:0; padding:0;}
+#content{ width:872px; height:420px; overflow:hidden; float:left; background: url(images/content_bg.gif) repeat-x; border:1px #fafafa solid; border-top:none; border-bottom:none;}
+#flash{ width:385px; height:240px; padding:0; margin:18px 0 10px 15px; float:left; display:inline;}
+#cmyintro{ width:402px; height:240px; margin:20px 20px 10px 50px; float:left; background:url(images/cmy_bg.gif) repeat-x;}
+#cmyintro .aboutus{ margin:15px 20px 0 10px;}
+#abtus{ width:230px; height:240px; float:left;}
+.more{ margin:10px 0 10px 175px;}
+#abtus span{ width:220px; line-height:15px; color:#999; float:left; text-indent:24px;}
+#news{ width:385px; height:125px; margin:15px 0 0 15px; float:left; background:url(images/news.gif) left top no-repeat; display:inline;}
+#news ul{ list-style:none; padding:0; margin-left:100px;}
+#news ul li{ line-height:18px; padding:0 0 6px 15px; margin:0; background:url(images/news_icon.gif) 0 6px no-repeat;}
+#news ul li a{ text-decoration:none; color:#333;}
+#news ul li a:hover{ color:#03c;}
+#contact{ width:400px; height:125px; padding:15px 0 0 70px; float:left;}
+#footer{ width:674px; height:65px; background:#f3f3f3; float:left; padding:15px 0 0 200px;}
+#footer .logo2{ margin:5px 20px 0 0; float:left;}
+#cprt{ width:474px; height:60px; float:left;}
+#cprt p{ width:474px; height:20px; float:left; text-align:center; color:#999; display:block; padding:0; margin:0;}
+/*自适应高度*/
+#wrap{ width:874px;overflow: hidden; margin:0 auto; padding:0;}
+#cleft{ width:200px; float:left; background:url(images/cleft_bg.jpg) repeat-y;}
+#cright{ width:674px; float:left; background:url(images/cright_bg.jpg) repeat-y;}
+#wrap:after{ display: block; height: 0; clear: both; visibility: hidden;}
+#wrap{display: inline-block;}
+/*\*/
+#wrap{display: block;}
+/* end easy clearing */
+/*\*/
+#cleft, #cright{padding-bottom: 32767px !important; margin-bottom: -32767px !important;}
+@media all and (min-width: 0px) {
+#cleft, #cright{padding-bottom: 0 !important; margin-bottom: 0 !important; }
+#cleft:before, #cright:before{ content: '[DO NOT LEAVE IT IS NOT REAL]'; display: block; background: inherit; padding-top: 32767px !important; margin-bottom: -32767px !important; height: 0;}
+}
+/* Created by shuanger, 2008-08-20*/
+/*左侧内容*/
+#cleft ul{ list-style:none; padding:0; margin:0 15px 30px;}
+#cleft ul li{ line-height:20px; padding:6px 0 4px 15px; margin:0; background:url(images/clef_icon.gif) 0 11px no-repeat; border-bottom:1px #ccc dashed;}
+#cleft ul li a{ text-decoration:none; color:#333;}
+#cleft ul li a:hover{ color:#03c;}
+#cleft  .none{ border:none;}
+/*右侧内容*/
+#cstitle{ padding:10px 15px; margin:0; float:left;}
+#cstitle a{margin:0; padding:0; letter-spacing:2px; color:#408EBC; font-weight:bold; text-decoration:none; }
+#crs{ width:634px;  border-top:1px solid #ddd; margin:0 15px 20px; padding:10px 5px 0 5px; clear:both;}

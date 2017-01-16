@@ -1,0 +1,23 @@
+<?php
+function index()
+{
+    
+}
+function view()
+{
+	global $db,$params;
+	
+	$sql='select * from '.TB_PREFIX.'list,'.TB_PREFIX.'list_content where '.TB_PREFIX.'list.id='.$params['args'].' and '.TB_PREFIX.'list.guid='.TB_PREFIX.'list_content.guid';
+	$list = $db->get_row($sql);
+	$sql="select * from ".TB_PREFIX."menu where id=$params[id]";
+	$page = $db->get_row($sql);
+	$sql='update '.TB_PREFIX.'list set counts=counts+1 where id='.$params['args'];
+	$db->query($sql);
+	
+	setdata('list',$list);
+	setdata('page',$page);
+}
+function goods_view(){
+
+}
+?>

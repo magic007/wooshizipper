@@ -1,0 +1,17 @@
+#
+# robots.txt for SHLCMS! Board
+# Version 3.8.0
+#
+
+User-agent: *
+
+Disallow: /admini/
+Disallow: /config/dt-config.php
+Disallow: /editor/
+Disallow: /inc/class.database.php
+Disallow: /inc/models/
+Disallow: /inc/class.paint.php
+Disallow: /setup/
+Disallow: /temp/
+Disallow: /webeditor/
+Disallow: /xml/

@@ -1,0 +1,1 @@
+<a href="<?php echo $o->linkAddress ?>" title="<?php echo $o->linkerName ?>" target="_blank"><?php echo $o->linkerName ?></a>

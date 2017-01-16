@@ -1,0 +1,16 @@
+<ul id="scrollbar" style="height:220px">
+				    <?php 
+					   global $db,$params,$request;
+					    $result = $db->get_col("select id from ".TB_PREFIX."menu where parentId =". $params[id]." order by ordering limit 1");
+		                if(!empty($result[0])){
+		                     $params[id] = $result[0];
+		                 }
+					    
+						$request = $db->get_results("select id,title,channelId from  ".TB_PREFIX."list where channelId = ".$params[id]." order by editTime DESC");
+						if($request){
+							foreach($request as $value){
+								echo '<li><a href="/?p='.$value->channelId.'&a=view&r='.$value->id.'">'.$value->title.'</a></li>';
+							}
+                        }
+					?>
+				</ul>

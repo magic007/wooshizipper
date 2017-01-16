@@ -1,0 +1,25 @@
+<?php include_once ("header.php"); ?>
+<!--主内容 开始 -->
+<div id="contact" class="clearfix">
+	<div class="container">
+		<div class="menu clearfix">
+			<ul>
+				<?php sub_menu('<li>||</li>','<li>||</li>') ?>
+			</ul>
+		</div>
+		<div class="bd">
+			<div class="main contact_main">
+			<?php layout_part() ?>
+				
+			</div>
+            <?php if(in_array($params[id],array(14,15,16))){ ?>
+			<img src="<?php echo get_skin_root()?>img/news_img.jpg" width="288" height="304" alt="乌石拉链"></div>
+			<?php }else if(in_array($params[id],array(18,19,20))){?>
+			<img src="<?php echo get_skin_root()?>img/join_img.jpg" width="288" height="304" alt="乌石拉链"></div>
+			<?php }?>
+			
+		</div>
+	</div>
+</div>
+<!--主内容 结束 -->
+<?php include_once ("footer.php"); ?>

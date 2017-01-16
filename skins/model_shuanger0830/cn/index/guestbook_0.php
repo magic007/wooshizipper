@@ -1,0 +1,1 @@
+<li>留言：<?php echo $o->content;?></li>

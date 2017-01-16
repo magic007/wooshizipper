@@ -1,0 +1,83 @@
+/* CSS Document */
+body { margin:0; font-size:12px; color:#777; background:#333; font-family:Arial;}
+a{ color:#666;}
+ul{ margin:0; padding:0; list-style:none;}
+img{ border:none;}
+h1{ margin:0; padding:0;}
+#container{ width:100%; background:#F1F2ED url(images/mainbg.jpg) repeat-x;}
+/*-----页面头部样式-----*/
+#header{ width:812px; height:308px; margin:0 auto;}
+#logo{ width:252px; height:71px; padding:29px 0 0 20px; float:left;}
+#search{ width:178px; height:22px; float:right; display:inline; margin:58px 10px 0 0;}
+#lan{ width:178px; height:22px; float:right; display:inline; margin:58px 10px 0 0;}
+.text{ width:143px; height:18px; margin-right:3px; border:none; background:url(images/search.jpg) no-repeat; padding:4px 0 0 10px; color:#666;}
+.go{ width:22px; height:22px; border:none; background:url(images/go.jpg) no-repeat; cursor:pointer;}
+#nav{ width:920px; height:32px; float:left; padding:3px 0 0 10px;}
+#nav ul li{ float:left; margin-right:5px; display:inline;}
+#nav a{ height:32px; float:left; padding:0 0 0 10px; background:url(images/navbgl.jpg) no-repeat left top; color:#333; text-decoration:none; line-height:14px; letter-spacing:1px;}
+#nav a span{ float:left; display:block; background:url(images/navbgr.jpg) no-repeat right top; padding:10px 20px 8px 10px; color:#fff; text-align:center;}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#nav a span {float:none;}
+/* End IE5-Mac hack */
+#nav a:hover span{ color:#666;}
+#nav a:hover { background-position:0% -32px;}
+#nav a:hover span { background-position:100% -32px;}
+/*-----为导行增加的选中样式-----*/
+#nav .ysuny a { background-position:0% -32px;}
+#nav .ysuny a span { background-position:100% -32px; color:#666;}
+/*---------------------------*/
+#banner{ width:812px; height:165px; float:left;}
+/*-----页面中间部样式-----*/
+#pagebody{ width:812px; height:368px; margin:0 auto;}
+#sideleft{ width:492px; float:left;}
+#sideleft h1{ padding:25px 0 0 10px; height:29px; width:480px; border-bottom:1px #ccc dashed; font-size:12px; font-weight:normal;}
+#sideleft h1 a{ float:right; margin-top:6px; text-decoration:none;}
+#sideleft h1 a:hover{ color:#669933;}
+#sideleft h2{ padding:15px 0 0 10px; height:29px; width:480px; margin:0; font-size:12px; font-weight:normal;}
+#sideleft h2 a{ float:right; margin-top:6px; text-decoration:none;}
+#sideleft h2 a:hover{ color:#669933;}
+#sideleft .comp{ display:block; width:470px; height:100px; padding:20px 10px 0 10px; text-indent:24px; line-height:20px;}
+#sideleft ul li{ padding:5px 0 5px 10px;}
+#sideleft ul li a:hover{ text-decoration:none; color:#669933;}
+#sideright{ width:320px; float:left;}
+#flash{ width:305px; height:170px; background:url(images/flashbg.jpg) no-repeat center 10px; padding:25px 0 0 15px;}
+#solution{ width:305px; height:170px; padding:0 0 0 15px; background:url(images/sol.gif) no-repeat 15px 40px; position:relative;}
+#solution h1{ width:290px; height:27px; padding:13px 0 0 0; float:left;}
+#solution p{ padding:10px 22px 0 10px; margin:0; line-height:20px; float:left;}
+#more{ position:absolute; bottom:10px; right:30px;}
+#more a{ text-decoration:none;}
+
+/*-----页面底部样式-----*/
+#footer{ width:100%; height:150px; background:#333 url(images/footbg.jpg) repeat-x top;}
+#foottop{ width:900px; height:125px; background:url(images/foottop.gif) no-repeat; margin:0 auto;}
+#foottop ul{ padding:25px 0 0 60px;}
+#foottop li{ float:left; padding:10px 15px 0 15px;}
+#foottop li a{ color:#bbb;}
+#foottop li a:hover{ color:#A7C42E;}
+#foottop p{ color:#ccc; clear:both; margin:0; padding:15px 0 0 0; display:inline-block;}
+
+/*-----内容也样式-----*/
+#cpagebody{ width:812px; margin:0 auto; overflow:hidden;}
+#csideleft{ width:210px; float:left; background:url(images/csidel.jpg) no-repeat center 10px;}
+#csideleft h1{ width:210px; height:50px;}
+#csideleft ul{ padding:15px 15px 0 25px; height:180px;}
+#csideleft ul li{ padding:5px 0 5px 25px; background:url(images/sign.jpg) no-repeat left 8px;}
+#csideleft ul li a{ text-decoration:none;}
+#csideleft ul li a:hover{ text-decoration:underline;}
+#csideright{ width:602px; float:left;}
+#location{ width:565px; height:29px; margin:0 0 0 10px; padding:30px 0 0 15px; border-bottom:1px dashed #CCCCCC;}
+#location a{ text-decoration:none;}
+#location a:hover{ text-decoration:underline;}
+#main{ width:580px; padding:15px 0 0 15px;}
+/*自适应高度*/
+#cpagebody:after{ display:block; height:0; clear:both; visibility:hidden;}
+#cpagebody{display:inline-block;}
+/*\*/
+#cpagebody{display:block;}
+/* end easy clearing */
+/*\*/
+#csideleft, #csideright{padding-bottom: 32767px !important; margin-bottom: -32767px !important;}
+@media all and (min-width: 0px) {
+#csideleft, #csideright{padding-bottom: 0 !important; margin-bottom:0 !important; }
+#csideleft:before, #csideright:before{ content: '[DO NOT LEAVE IT IS NOT REAL]'; display: block; background: inherit; padding-top: 32767px !important; margin-bottom: -32767px !important; height:0;}
+}

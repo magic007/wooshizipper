@@ -1,0 +1,32 @@
+# BEGIN Deepthroat
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule "^html/([^./]*)[/|]$" "/?f=$1"
+RewriteRule "^html/([^./]*)/([0-9]+).html" "/?f=$1&c=$2"
+RewriteRule "^html/([^./]*)/(view)_([0-9]+).html" "/?f=$1&a=$2&r=$3"
+RewriteRule "^html/([^./]*)/(view)_([0-9]+)_([0-9]+).html" "/?f=$1&a=$2&c=$3&r=$4"
+RewriteRule "^html/([^./]*)/(send)_([0-9]+).html" "/?f=$1&a=$2&r=$3"
+</IfModule>
+# END Deepthroat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

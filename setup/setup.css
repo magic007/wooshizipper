@@ -1,0 +1,48 @@
+body {	margin: 0px; padding:0; font-size:12px; background:#E6F4FF; color:#666;}
+#header{ width:100%; height:122px; background:url(images/head_bg.jpg) repeat-x; margin:0 auto;}
+#head{ width:1004px; height:122px; margin:0 auto; background:url(images/header.jpg) no-repeat;}
+#link{ float:right; margin:10px 20px 0 0; display:inline; width:150px; height:15px;}
+#link ul{ list-style:none; margin:0; padding:0;}
+#link ul li{ float:left; padding:0 10px; background:url(images/line.gif) right 1px no-repeat;}
+#link li a{ color:#fff; text-decoration:none;}
+#link .nobg{ background:none;}
+#content{ width:800px; margin:0 auto;overflow:hidden; padding:23px 0 0 0;}
+#content:after{ display:block; height:0; clear:both; visibility:hidden;}
+#content{display:inline-block;}
+#content{display:block;}
+#cleft, #cright{padding-bottom: 32767px !important; margin-bottom: -32767px !important;}
+@media all and (min-width: 0px) {
+#cleft, #cright{padding-bottom: 0 !important; margin-bottom:0 !important; }
+#cleft:before, #cright:before{ content: '[DO NOT LEAVE IT IS NOT REAL]'; display: block; background: inherit; padding-top: 32767px !important; margin-bottom: -32767px !important; height:0;}
+}
+#cleft{ width:170px; float:left; margin:0 30px 0 0; overflow:hidden;}
+#cright{ width:600px; float:left; overflow:hidden;}
+#steps{ width:170px; background:url(images/left_bg.jpg) repeat-y; overflow:hidden;}
+#steps ul{ list-style:none; margin:25px 0 0 15px; padding:0; background:url(images/line_bg.jpg) repeat-y;}
+#steps ul li{ padding:0; line-height:14px; padding:0 0 26px 0;}
+#steps li span{ color:#1A80C2; text-decoration:none; font-size:14px; font-weight:bold; background:url(images/icon.jpg) left top no-repeat; padding:0 0 0 25px;}
+#steps #selected{ color:#fc0; background:url(images/icon2.jpg) left top no-repeat;}
+#steps .over{ padding:0;}
+#cright .title{ width:165px; height:21px; float:left; margin:5px 0 0 20px; display:inline; background:url(images/label.jpg) no-repeat; font-size:14px; font-weight:bold; color:#fff; padding:5px 0 0 15px;}
+#install{ width:600px; background:url(images/right_bg.jpg) repeat-y; overflow:hidden;}
+.imgtop{ overflow:hidden;}
+#crs{ width:560px; overflow:hidden; margin:20px 20px; float:left; display:inline;}
+#crs h3{ font-size:14px; font-weight:bold; }
+#crs p{ width:570px; line-height:15px; padding:0; margin:0; float:left;}
+#crs .back{ margin:30px 0 0 180px; float:left; display:inline;}
+#crs .next{ margin:30px 0 0 70px; float:left; display:inline;}
+.normalbutton{ margin:30px 0 0 170px; float:left; display:inline; background:url(images/back.jpg) left top no-repeat; width:70px; height:22px; border:0;}
+.submitbutton{ margin:30px 0 0 70px; float:left; display:inline; background:url(images/next.jpg) left top no-repeat; width:70px; height:22px; border:0;}
+#crs .step1next{ margin:30px 0 0 240px; float:left; display:inline;}
+#crs .txtArea{width:520px; height:400px; margin:10px 15px 0 15px;  border:1px solid #B3C8E8; background-color:#f4f4f4; font-size:12px;letter-spacing: 1px; padding:10px;}
+table{ margin-top:10px;}
+td{ height:30px; line-height:30px;}
+#introducetd{ padding:10px 10px 5px; height:100px; border:1px solid #1A80C2;}
+.table_list{ border:1px solid #1A80C2; border-width:1px 0 0 1px; }
+.table_list td,.table_list th{ padding:3px 5px; line-height:16px;border:1px solid #1A80C2; border-width:0 1px 1px 0; }
+li {line-height: 22px; list-style:none;font-family: PMingLiU, Verdana, serif;font-size: 12px;}
+.copy {line-height: 22px;font-family: PMingLiU, Verdana, serif;font-size: 12px;}
+.yellow{ color:#FF9900;}
+.red{ color:#FF0000;}
+.right{ padding-left:15px; background:url(images/right.gif) left center no-repeat;}
+.wrong{ padding-left:15px; background:url(images/wrong.gif) left center no-repeat;}

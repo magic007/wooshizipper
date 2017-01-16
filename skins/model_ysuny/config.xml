@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebSite>
+	 <SiteName>绿色企业模板</SiteName>
+	 <FileName>model_ysuny</FileName>
+	 <SiteMaster>ysuny</SiteMaster>
+	 <PubDate>2008-08-26</PubDate>
+	 <StyleType>绿色</StyleType>
+	 <summary>一个简单的企业模板</summary>
+	 <pic>preview/index.jpg</pic>
+</WebSite>

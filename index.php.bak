@@ -1,0 +1,144 @@
+<?php
+@session_start();
+@error_reporting(E_ALL ^ E_NOTICE);
+header('Content-Type: text/html; charset=utf-8');
+define('THISISADMINI',true);
+function_exists('date_default_timezone_set') && @date_default_timezone_set('Etc/GMT-'.TIMEZONENAME);
+if(!file_exists(dirname(__FILE__).'/config/dt-config.php')||filesize(dirname(__FILE__).'/config/dt-config.php')==0||filesize(dirname(__FILE__).'/config/dt-config.php')==3)die('系统尚未安装，请进入<a href="setup/setup.php">安装目录</a>');
+
+require(dirname(__FILE__).'/config/dt-config.php');
+require(ABSPATH.'/inc/function.php');
+if(file_exists(ABSPATH.'/inc/common.php'))require_once(ABSPATH.'/inc/common.php');
+require(ABSPATH.'/inc/class.database.php');
+require(ABSPATH.'/inc/class.pager.php');
+//写入Session
+if(empty($_SESSION[TB_PREFIX.'dtLanguage']))
+{
+	$_SESSION[TB_PREFIX.'dtLanguage']=SITELANGUAGE;
+}
+require(ABSPATH.'/content/common/common.php');
+
+$_REQUEST = cleanArrayForMysql($_REQUEST);
+$_GET = cleanArrayForMysql($_GET);
+$_POST = cleanArrayForMysql($_POST);
+$request = $_REQUEST;
+
+$data = array();
+$menu_arr=array();
+//写路由语句
+
+//写判断模块语句  /model/action/number   #Ex: /mywork/view/1  /news/sport/1/comment
+// 模块名/操作字符串
+// /arg[0]/arg[1]/arg[2]
+//preg_match("/^(http:\/\/)?([^\/]+)/i","http://www.php.net/index.html", $matches);
+//$host = $matches[2];
+
+$pfileName = get_str($request['f']);
+if(!empty($pfileName) && $pfileName != 'search')
+$request['p'] = getIdByFile($pfileName);
+elseif($pfileName == 'search')
+$request['m'] = 'search';
+global $search;
+(URLREWRITE)?($search='/html/search/'):($search='/?m=search');
+
+$request['p']=intval($request['p']);
+$request['c']=intval($request['c']);
+$request['r']=intval($request['r']);
+$request['i']=intval($request['i']);
+$request['comment']=intval($request['comment']);
+$request['mdtp']=intval($request['mdtp']);
+
+if($request['p'])$params['id']=intval($request['p']);else $params['id']=0;
+if($request['c'])$params['cid']=intval($request['c']);else $params['cid']=0;
+$menu_arr=get_model_type($params['id']);
+if(empty($request['m']))
+$params['model']=$menu_arr['type'];
+else
+$params['model']=$request['m'];
+$params['action']=empty($request['a'])?'index':$request['a'];
+$params['related_common']=empty($menu_arr['related_common'])?$params['model']:$menu_arr['related_common'];
+$params['args']=intval($request['r']);
+$params['i']=intval($request['i']);
+//验证用户
+if($params['model']!='user' || $params['model']!='index')
+{
+	if(intval($_SESSION[TB_PREFIX.'user_roleId'])<intval($menu_arr['level'])&&($params['action']=='view' || $menu_arr['type']=='article' || $menu_arr['type']=='guestbook' || $menu_arr['type']=='jobs' || $menu_arr['type']=='order' || $menu_arr['type']=='webmap' || $menu_arr['type']=='poll'))
+	redirect('./?m=user&a=login&url='.urlencode($_SERVER['REQUEST_URI']));
+}
+//载入控制器
+$controller=ABSPATH.'/content/'.$params['model'].'/index.php';
+//载入调用标签
+if(file_exists(ABSPATH.'/content/index/common_call_label.php'))require_once(ABSPATH.'/content/index/common_call_label.php');
+if(file_exists($controller))
+{
+	require_once($controller);	
+
+	//如果Action 为 comment模块　则调用
+	require_once(ABSPATH.'/content/comment/index.php');
+
+	//执行 Action	
+	empty($params['action'])?index():(function_exists($params['action'])?$params['action']():die("无此Action #$params[action]"));
+	//exit;
+}
+$part_path=ABSPATH.'/skins/'.STYLENAME.'/'.$_SESSION[TB_PREFIX.'dtLanguage'].'/';
+$part_common_path=ABSPATH.'/skins/'.STYLENAME.'/'.$_SESSION[TB_PREFIX.'dtLanguage'].'/common/';
+if(file_exists($part_path.'header.php')){
+require_once($part_path.'header.php');
+}
+switch ($params['related_common'])
+{
+	case 'index':
+		if(file_exists($part_path.'index.php'))require_once($part_path.'index.php');
+		break;
+	case 'user':
+		if(file_exists($part_path.'common.php'))require_once($part_path.'common.php');
+		break;
+	case 'search':
+		if(file_exists($part_path.'common.php'))require_once($part_path.'common.php');
+		break;
+	case 'common.php':
+		if(file_exists($part_path.'common.php'))require_once($part_path.'common.php');
+		break;
+	default:
+		if(file_exists($part_common_path.$params['related_common']))
+			require_once($part_common_path.$params['related_common']);
+		else
+			require_once($part_path.'common.php');
+		break;
+}
+/*###################################
+switch ($params['model'])
+{
+	case 'index':
+		if(file_exists($part_path.'index.php'))require_once($part_path.'index.php');
+		break;
+	default:
+		if(file_exists($part_path.'common.php'))require_once($part_path.'common.php');
+		break;
+}
+################################*/
+
+//载入布局
+function layout_part()
+{
+	global $params,$request;
+	//载入模版
+	$part_path=ABSPATH.'/skins/'.STYLENAME.'/'.$_SESSION[TB_PREFIX.'dtLanguage'].'/parts/'.$params['model'].'_'.$params['action'].'.php';
+	$content_part_path=ABSPATH.'/content/'.$params['model'].'/parts_'.$params['action'].'.php';
+	if(file_exists($part_path))
+	require_once($part_path);
+	else 
+	require_once($content_part_path);
+	
+	//判断是否载入评论模块，如果需要则载入评论，不需要则不载入;
+	isComment();
+}
+function get_model_type($id)
+{
+	global $db;
+	if($id==0)
+	return array('type'=>'index','level'=>0);
+	else
+	return $db->get_row("select * from ".TB_PREFIX."menu where id=$id",ARRAY_A);
+}
+?>

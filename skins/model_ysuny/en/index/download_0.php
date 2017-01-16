@@ -1,0 +1,1 @@
+<li><a href="./?p=<?php echo $channelId ?>&a=view&r=<?php echo $o->id ?>"><?php echo $o->softwareName ?></a></li>
